@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
@@ -20,18 +22,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/admin/usarios',[AdminController::class, 'index'])->name('admin.usuarios.index');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware(['auth', 'verified']);
+
+/*
 Route::get('/dashboard', function () {
-
-
-    $user = User::find(1);
-    $user->assignRole('admin');
-
-    $user->givePermissionTo('edit posts');
-
-
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
+*/
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

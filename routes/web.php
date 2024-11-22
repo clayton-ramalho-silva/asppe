@@ -18,10 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::redirect('/', 'dashboard');
+
+/*
 Route::get('/', function () {
     return view('welcome');
 });
-
+*/
 
 Route::get('/admin/usarios',[AdminController::class, 'index'])->name('admin.usuarios.index');
 

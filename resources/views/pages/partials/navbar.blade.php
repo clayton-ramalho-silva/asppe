@@ -12,7 +12,7 @@
                 <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="user-profile-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="media">
                         <div class="media-body align-self-center">
-                            <h6>Usuario</h6>
+                            <h6>{{ Auth::user()->name }}</h6>
                             <p>Manager</p>
                         </div>
                         <img src="assets/img/90x90.jpg" class="img-fluid" alt="admin-profile">

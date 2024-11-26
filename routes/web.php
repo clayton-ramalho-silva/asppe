@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Models\User;
@@ -21,11 +22,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', 'dashboard');
 
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
-*/
+
+
+Route::get('/candidatos', [ApplicantController::class, 'index'])->name('candidatos.index');
+Route::get('/canditatos/create', [ApplicantController::class, 'create'])->name('canditatos.create');
+
 
 Route::get('/admin/usarios',[AdminController::class, 'index'])->name('admin.usuarios.index');
 

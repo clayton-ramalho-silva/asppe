@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Applicant extends Model
 {
     use HasFactory;
+
+    protected $guard = [];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function getUserNameAttribute()
+    {
+        return $this->user->name;
+    }
 }

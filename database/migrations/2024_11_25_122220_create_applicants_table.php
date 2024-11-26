@@ -13,38 +13,36 @@ return new class extends Migration
     {
         Schema::create('applicants', function (Blueprint $table) {
             $table->id();
-            $table->string('nome')->require();
-            $table->string('sombrenome')->require();
-            $table->date('data_nascimento')->require();
-            $table->string('estado_civil')->require();
-            $table->boolean('tem_filhos')->default('0')->require();
-            $table->string('genero')->require();
-            $table->string('reservista')->require();
-            $table->string('rg')->require();
-            $table->bigInteger('cpf')->require();
-            $table->string('logradouro')->require();
-            $table->string('number')->nullable();
-            $table->string('complemnto')->nullable();
-            $table->string('bairro')->require();
-            $table->string('cidade')->require();
-            $table->string('estado')->require();
-            $table->string('pais')->default('brasil');
-            $table->string('email')->require();
-            $table->string('telefone_residencial')->nullable();
-            $table->string('telefone_celular')->require();
-            $table->json('vagas_interesse')->require();
-            $table->json('experiencia_profissional')->require();
-            $table->string('escolaridade')->require();
-            $table->string('participou_selecao')->require();
-            $table->string('jovem_aprendiz')->nullable();
-            $table->string('informatica')->require();
-            $table->string('ingles')->require();
+            $table->string('nome');
+            $table->string('sombrenome');
+            $table->date('data_nascimento');
+            $table->string('estado_civil');
+            $table->boolean('tem_filhos')->default('0');
+            $table->string('genero');
+            $table->boolean('reservista');
+            $table->string('reservista_description')->nullable();
+            $table->string('rg');
+            $table->bigInteger('cpf');
+            $table->string('logradouro');
+            $table->string('numero');
+            $table->string('complemento')->nullable();
+            $table->string('bairro');
+            $table->string('cidade');
+            $table->string('estado');
+            $table->string('pais');
+            $table->string('email');
+            $table->string('telefone_residencial');
+            $table->string('telefone_celular');
+            $table->json('vagas_interesse')->nullable();
+            $table->json('experiencia_profissional')->nullable();
+            $table->string('escolaridade');
+            $table->string('participou_selecao');
+            $table->string('jovem_aprendiz');
+            $table->string('informatica');
+            $table->string('ingles');
             $table->string('tamanho_uniforme')->nullable();
-            $table->string('curriculo')->require();
-            $table->foreignId('user_id')->constrained();
-
-
-
+            $table->string('curriculo');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
 
             $table->timestamps();
         });

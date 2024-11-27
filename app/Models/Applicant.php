@@ -11,6 +11,15 @@ class Applicant extends Model
 
     protected $guard = [];
 
+    protected $casts = [
+        'vagas_interesse' => 'array',
+        'experiencia_profissional' => 'array',
+    ];
+
+    protected $dates = [
+        'data_nascimento'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

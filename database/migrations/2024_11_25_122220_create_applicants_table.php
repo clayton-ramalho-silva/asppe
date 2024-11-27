@@ -12,14 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('applicants', function (Blueprint $table) {
-            $table->id();
-            $table->string('nome');
-            $table->string('sombrenome');
+            $table->id();           
             $table->date('data_nascimento');
             $table->string('estado_civil');
             $table->boolean('tem_filhos')->default('0');
             $table->string('genero');
-            $table->boolean('reservista');
+            $table->string('reservista');
             $table->string('reservista_description')->nullable();
             $table->string('rg');
             $table->bigInteger('cpf');
@@ -29,8 +27,7 @@ return new class extends Migration
             $table->string('bairro');
             $table->string('cidade');
             $table->string('estado');
-            $table->string('pais');
-            $table->string('email');
+            $table->string('pais');           
             $table->string('telefone_residencial');
             $table->string('telefone_celular');
             $table->json('vagas_interesse')->nullable();

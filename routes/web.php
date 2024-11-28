@@ -27,6 +27,7 @@ Route::redirect('/', 'dashboard');
 Route::get('/candidatos', [ApplicantController::class, 'index'])->name('candidatos.index');
 Route::get('/canditatos/create', [ApplicantController::class, 'create'])->name('canditatos.create');
 Route::post('/candidatos', [ApplicantController::class, 'store'])->name('canditados.store');
+Route::get('/candidatos/{id}/edit', [ApplicantController::class, 'edit'])->name('candidatos.edit');
 
 
 Route::get('/admin/usarios',[AdminController::class, 'index'])->name('admin.usuarios.index');

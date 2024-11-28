@@ -106,8 +106,16 @@ class ApplicantController extends Controller
         return;
     }
 
-    public function update()
+    public function edit($id)
     {
+        
+        $candidato = Applicant::find($id);
+        
+        return view('pages.candidatos.edit');
+    }
+    public function update(Request $request)
+    {
+       
         return;
     }
 

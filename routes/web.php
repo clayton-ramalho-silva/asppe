@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Applicant;
 use App\Models\User;
@@ -20,10 +21,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+// Gerais
 Route::redirect('/', 'dashboard');
 
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware(['auth', 'verified']);
 
+
+// Empresas
+
+Route::controller(EmpresaController::class)->group(function(){
+    Route::get('/empresas', 'index')->name('empresas.index');
+    Route::get('/empresas/create', 'create')->name('empresas.create');
+    Route::post('/empresas','store')->name('empresas.store');
+});
+
+
+
+// Candidatos
 Route::get('/candidatos', [ApplicantController::class, 'index'])->name('candidatos.index');
 Route::get('/canditatos/create', [ApplicantController::class, 'create'])->name('canditatos.create');
 Route::post('/candidatos', [ApplicantController::class, 'store'])->name('canditados.store');
@@ -32,7 +46,6 @@ Route::get('/candidatos/{id}/edit', [ApplicantController::class, 'edit'])->name(
 
 Route::get('/admin/usarios',[AdminController::class, 'index'])->name('admin.usuarios.index');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware(['auth', 'verified']);
 
 
 Route::middleware('auth')->group(function () {

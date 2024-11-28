@@ -5,7 +5,7 @@
     <div class="page-header">
         <nav class="breadcrumb-one" aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0);">Candidatos</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('candidatos.index') }}">Candidatos</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><a href="javascript:void(0);">Novo Candidato</a></li>
             </ol>
         </nav>
@@ -147,10 +147,9 @@
                                             </div>
     
                                         </div>                                    
-                                    </div>
-                                    
+                                    </div>                                    
                                 </div>
-                            </form>
+                            </div>                            
                         </div>                    
     
                         <!-- Informações Localização -->
@@ -587,18 +586,24 @@
                     </div>
                 </div>
             </div>
-            <div class="account-settings-footer">
-                
-                <div class="as-footer-container">
-    
-                    <button id="multiple-reset" class="btn btn-warning">Reset All</button>
-                    <div class="blockui-growl-message">
-                        <i class="flaticon-double-check"></i>&nbsp; Settings Saved Successfully
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
+                    <div class="account-settings-footer">
+                        
+                        <div class="as-footer-container">
+            
+                            <a href="{{ route('candidatos.index') }}" id="multiple-reset" class="btn btn-warning">Voltar</a>
+                            <div class="blockui-growl-message">
+                                <i class="flaticon-double-check"></i>&nbsp; Settings Saved Successfully
+                            </div>
+                            <button id="multiple-messages" class="btn btn-primary">Salvar</button>
+            
+                        </div>
+            
                     </div>
-                    <button id="multiple-messages" class="btn btn-primary">Save Changes</button>
-    
+
                 </div>
-    
+
             </div>
         </form>
 
@@ -625,7 +630,7 @@
     }
 
     .account-settings-footer{
-        width: 100%;
+        width: calc(100% - 78px);
     }
 </style>
 @endpush
